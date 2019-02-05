@@ -55,7 +55,7 @@ abstract class SideHeaderDecorator<H>(private val headerProvider: HeaderProvider
             headerView.layout(0, 0, headerView.measuredWidth, headerView.measuredHeight)
 
             val beginsGroup = (position == 0 || header != headerProvider.getHeader(position - 1))
-            val endsGroup = (position == lastIndex ||header != headerProvider.getHeader(position + 1))
+            val endsGroup = (position == lastIndex || header != headerProvider.getHeader(position + 1))
 
             c.save()
             if (childPosition == 0) {
