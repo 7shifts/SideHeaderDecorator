@@ -1,1 +1,1 @@
-include ':sample', ':sideheaderdecorator'
+include ':sample', ':side-header-decorator'
