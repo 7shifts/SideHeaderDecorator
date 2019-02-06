@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         names_list.addItemDecoration(object : SideHeaderDecorator<Char>(namesHeaderProvider) {
-
             override fun getHeaderView(header: Char, parent: RecyclerView): View {
                 val textView = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false) as TextView
                 textView.text = header.toString()
