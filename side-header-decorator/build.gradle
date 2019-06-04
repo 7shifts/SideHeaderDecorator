@@ -1,30 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.7shifts'
 
-ext {
-    bintrayRepo = '7shifts-maven'
-    bintrayName = 'side-header-decorator'
-
-    publishedGroupId = 'com.sevenshifts.android'
-    libraryName = 'SideHeaderDecorator'
-    artifact = 'side-header-decorator'
-
-    libraryDescription = 'A simple way to add sticky side headers to a RecyclerView.'
-
-    siteUrl = 'https://github.com/7shifts/SideHeaderDecorator'
-    gitUrl = 'https://github.com/7shifts/SideHeaderDecorator.git'
-
-    libraryVersion = '0.1.0'
-
-    developerId = 'matthewpalsich'
-    developerName = 'Matthew Palsich'
-    developerEmail = 'matthew.palsich@gmail.com'
-
-    licenseName = 'MIT License'
-    licenseUrl = 'https://opensource.org/licenses/MIT'
-    allLicenses = ["MIT License"]
-}
 
 android {
     compileSdkVersion 28
@@ -49,6 +28,3 @@ dependencies {
 tasks.withType(Javadoc).all {
     enabled = false
 }
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
