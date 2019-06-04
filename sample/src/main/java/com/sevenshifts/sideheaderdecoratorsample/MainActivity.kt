@@ -1,4 +1,4 @@
-package com.sevenshifts.sideheaderdecorator
+package com.sevenshifts.sideheaderdecoratorsample
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.sevenshifts.sideheaderdecorator.SideHeaderDecorator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         names_list.layoutManager = LinearLayoutManager(this)
         names_list.adapter = NamesAdapter()
 
-        val namesHeaderProvider = object : SideHeaderDecorator.HeaderProvider<Char> {
+        val namesHeaderProvider = object :
+            SideHeaderDecorator.HeaderProvider<Char> {
             override fun getHeader(position: Int) = names[position].first()
         }
 

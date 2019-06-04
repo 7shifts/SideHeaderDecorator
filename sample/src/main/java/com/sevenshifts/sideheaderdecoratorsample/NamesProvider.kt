@@ -1,4 +1,4 @@
-package com.sevenshifts.sideheaderdecorator
+package com.sevenshifts.sideheaderdecoratorsample
 
 class NamesProvider {
 

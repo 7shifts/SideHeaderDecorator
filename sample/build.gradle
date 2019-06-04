@@ -9,8 +9,8 @@ repositories {
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.sevenshifts.sideheaderdecorator"
-        minSdkVersion 21
+        applicationId "com.sevenshifts.sideheaderdecoratorsample"
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -26,7 +26,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.sevenshifts.android:side-header-decorator:0.1.0'
+    implementation project(':side-header-decorator')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
