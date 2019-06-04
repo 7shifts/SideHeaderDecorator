@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         names_list.layoutManager = LinearLayoutManager(this)
-        names_list.adapter = MyAdapter()
+        names_list.adapter = NamesAdapter()
 
         val namesHeaderProvider = object : SideHeaderDecorator.HeaderProvider<Char> {
             override fun getHeader(position: Int) = names[position].first()
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    inner class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
+    inner class NamesAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
         override fun getItemCount() = names.size
 

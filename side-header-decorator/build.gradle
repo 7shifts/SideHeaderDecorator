@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 
 ext {
-    bintrayRepo = 'maven'
+    bintrayRepo = '7shifts-maven'
     bintrayName = 'side-header-decorator'
 
     publishedGroupId = 'com.sevenshifts.android'

@@ -4,7 +4,6 @@ import android.graphics.Canvas
 import android.graphics.Rect
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import kotlin.math.max
 import kotlin.math.min
 
 abstract class SideHeaderDecorator<H>(private val headerProvider: HeaderProvider<H>) : RecyclerView.ItemDecoration() {
@@ -61,7 +60,6 @@ abstract class SideHeaderDecorator<H>(private val headerProvider: HeaderProvider
             if (childPosition == 0) {
                 val top = when {
                     beginsGroup && endsGroup -> view.top.toFloat()
-                    beginsGroup -> max(view.top, 0).toFloat()
                     endsGroup -> min(view.bottom - headerView.measuredHeight, 0).toFloat()
                     else -> 0f
                 }
