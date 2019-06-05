@@ -2,7 +2,7 @@
 This library offers a simple way to add sticky side headers to RecyclerViews. Without touching your list adapter, headers will scroll in with the first item in a group, stick to the top of the list, then scroll out with the last item in a group.
 
 ## Usage
-Using SideHeaderDecorator requires only two steps. First, use the HeaderProvider interface to map items to header models. Sequential items mapping to the same header model are considered a group. For example, consider a list of names where the headers' data is a name's first initial.
+Using SideHeaderDecorator requires only two steps. First, use the HeaderProvider interface to map items to header data. Sequential items mapping to the same header data are considered a group. For example, consider a list of names where the headers' data is a name's first initial.
 
 ```kotlin
 val headerProvider = object : SideHeaderDecorator.HeaderProvider<Char> {
@@ -12,10 +12,10 @@ val headerProvider = object : SideHeaderDecorator.HeaderProvider<Char> {
 }
 ```
 
-Second, given some header model, implement SideHeaderDecorator's single abstract method to create header views. For example, given the first initial of a name, return an inflated header view.
+Second, given your header data from HeaderProvider::getHeader, implement SideHeaderDecorator's single abstract method to create header views. Pass your HeaderProvider to SideHeaderDecorator's constructor. For example, given the first initial of a name, return an inflated header view.
 
 ```kotlin
-val headerDecorator = object : SideHeaderDecorator {
+val headerDecorator = object : SideHeaderDecorator(headerProvider) {
   override fun getHeaderView(header: Char, parent: RecyclerView): View {
     val textView = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false) as TextView
     textView.text = header.toString()
@@ -30,6 +30,8 @@ That's it! Apply the decorator to your RecyclerView and get sticky side headers!
 names_recycler_view.addItemDecoration(headerDecorator)
 ```
 
+<img src="https://raw.githubusercontent.com/7shifts/SideHeaderDecorator/master/readme_assets/side_header_decorator_demo.gif" width=320/>
+
 #### Additional Notes
 
 List Item Padding
@@ -38,6 +40,10 @@ List Item Padding
 Header Placement
 - The header view is placed (at first) in the top-left corner of your list item view. The header view retains its own padding.
 
+![Header padding and placement](https://raw.githubusercontent.com/7shifts/SideHeaderDecorator/master/readme_assets/sideheaderdecorator_padding)
+
 ## License
+
 Copyright (c) 2019 7shifts
+
 SideHeaderDecorator is licensed under the MIT License.
