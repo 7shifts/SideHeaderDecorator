@@ -1,1 +1,43 @@
 # SideHeaderDecorator
+This library offers a simple way to add sticky side headers to RecyclerViews. Without touching your list adapter, headers will scroll in with the first item in a group, stick to the top of the list, then scroll out with the last item in a group.
+
+## Usage
+Using SideHeaderDecorator requires only two steps. First, use the HeaderProvider interface to map items to header models. Sequential items mapping to the same header model are considered a group. For example, consider a list of names where the headers' data is a name's first initial.
+
+```kotlin
+val headerProvider = object : SideHeaderDecorator.HeaderProvider<Char> {
+  override fun getHeader(position: Int): Char {
+    return names[position].first()
+  }
+}
+```
+
+Second, given some header model, implement SideHeaderDecorator's single abstract method to create header views. For example, given the first initial of a name, return an inflated header view.
+
+```kotlin
+val headerDecorator = object : SideHeaderDecorator {
+  override fun getHeaderView(header: Char, parent: RecyclerView): View {
+    val textView = LayoutInflater.from(parent.context).inflate(R.layout.header_view, parent, false) as TextView
+    textView.text = header.toString()
+    return textView
+  }
+}
+```
+
+That's it! Apply the decorator to your RecyclerView and get sticky side headers!
+
+```kotlin
+names_recycler_view.addItemDecoration(headerDecorator)
+```
+
+#### Additional Notes
+
+List Item Padding
+- To make room for the header view, SideHeaderDecorator steals the left padding from your list item view.
+
+Header Placement
+- The header view is placed (at first) in the top-left corner of your list item view. The header view retains its own padding.
+
+## License
+Copyright (c) 2019 7shifts
+SideHeaderDecorator is licensed under the MIT License.
