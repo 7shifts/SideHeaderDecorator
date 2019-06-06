@@ -1,7 +1,17 @@
 # SideHeaderDecorator
+
 This library offers a simple way to add sticky side headers to RecyclerViews. Without touching your list adapter, headers will scroll in with the first item in a group, stick to the top of the list, then scroll out with the last item in a group.
 
+#### Add me to your project!
+
+```groovy
+implementation 'com.github.7shifts:SideHeaderDecorator:0.2.0'
+```
+
+[![](https://jitpack.io/v/7shifts/SideHeaderDecorator.svg)](https://jitpack.io/#7shifts/SideHeaderDecorator)
+
 ## Usage
+
 Using SideHeaderDecorator requires only two steps. First, use the HeaderProvider interface to map items to header data. Sequential items mapping to the same header data are considered a group. For example, consider a list of name Strings where the headers' data is a name's first initial.
 
 ```kotlin
