@@ -59,8 +59,7 @@ abstract class SideHeaderDecorator<H>(private val headerProvider: HeaderProvider
             c.save()
             if (childPosition == 0) {
                 val top = when {
-                    beginsGroup && endsGroup -> view.top.toFloat()
-                    endsGroup -> min(view.bottom - headerView.measuredHeight, 0).toFloat()
+                    beginsGroup && endsGroup || endsGroup-> view.top.toFloat()
                     else -> 0f
                 }
 
